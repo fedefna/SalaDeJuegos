@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+  
+      <div class="col-sm-3">
+        <span class="font">{{gameName}}</span>
+        <div class="imagenContainer">
+          <img src="../../../assets/Images/ahorcado/{{intentosFallidos}}.png" >
+          <span class="font">Intentos fallidos: {{intentosFallidos}}</span>
+           
+          <br><br>
+  
+          <div *ngIf="victoria">
+            <span>Adivisnaste, felicitaciones!</span>
+          </div>
+        
+          <div *ngIf="derrota">
+            <span>Perdiste, volve a intentarlo! La palabra era: {{palabraRandom}}:</span>
+          </div>
+        
+          
+        </div>
+      </div>
+  
+      <div class="col-sm-5">
+        <div class="row justify-content-center">
+          <br><br>
+  
+          <h1>Preparado?! Esta palabra tiene {{cantidadDeLetras}} letras:</h1>
+  
+          <div style="align-items: center;">
+            <h1> {{pistas}} </h1>
+          </div>
+      
+          <div class="letras" *ngIf= "(!victoria) && (!derrota)">
+            <button class="abc" *ngFor="let letra of letras" (click)="validarLetra(letra)">{{letra}}</button>
+          </div>
+  
+          <div class='d-md-flex flex-md-equal '>
+
+              <div class="px-md-5 text-center text-white">
+                <button class="btn btn-lg btn-primary btn-block" type="button" (click)="goHome()" >Salir</button>
+              </div>
+
+              <div class="px-md-5 text-center text-white">
+                <button class="btn btn-lg btn-primary btn-block" type="button" (click)="restart()" >Reiniciar</button>
+              </div>
+            
+          </div>
+        </div>         
+      </div>
+  
+      <div class="col-sm-4">
+        <app-chat></app-chat>
+      </div>
+    </div>
+</div>

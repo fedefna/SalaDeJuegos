@@ -1,0 +1,123 @@
+<div id="fondo" class="position-relative overflow-hidden">
+    <br>
+    <div class="container">
+        <form [formGroup]="formulario" (ngSubmit)="aceptar()">
+            <div class="row">
+                <div class="col-md-12 mb-5">
+                    <h2><b>Encuesta</b></h2>
+                </div>
+            </div>
+            <div class="row formulario">
+
+                <div class="col-md-6 mb-3">
+
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre"
+                        formControlName="nombre">
+                    <small class="invalid"
+                        *ngIf="formulario.get('nombre')?.errors?.['required'] && formulario.get('nombre')?.touched">
+                        El nombre es requerido
+                    </small>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido"
+                        formControlName="apellido">
+                    <small class="invalid"
+                        *ngIf="formulario.get('apellido')?.errors?.['required'] && formulario.get('apellido')?.touched ">
+                        El apellido es requerido
+                    </small>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label for="edad" class="form-label">Edad</label>
+                    <input type="number" class="form-control" id="edad" placeholder="Ingrese edad"
+                        formControlName="edad">
+                    <small class="invalid"
+                        *ngIf="formulario.get('edad')?.errors?.['required'] && formulario.get('edad')?.touched ">
+                        La edad es requerida
+                    </small>
+                    <small class="invalid"
+                        *ngIf="formulario.get('edad')?.errors?.['min'] || formulario.get('edad')?.errors?.['max'] && formulario.get('edad')?.touched ">
+                        La edad debe ser entre 18 a 110 años
+                    </small>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="telefono" class="form-label">Telefono</label>
+                    <input type="text" class="form-control" id="telefono" placeholder="Ingrese telefono"
+                        formControlName="telefono" maxlength="10">
+                    <small class="invalid"
+                        *ngIf="formulario.get('telefono')?.errors?.['required'] && formulario.get('telefono')?.touched ">
+                        El numero de telefono es requerido
+                    </small>
+                    <small class="invalid"
+                        *ngIf="formulario.get('telefono')?.errors?.['pattern']  && formulario.get('telefono')?.touched ">
+                        El numero de telefono solo debe contener numeros
+                    </small>
+                </div>
+
+                <div class="col-md-6 mb-5">
+
+                    <label for="juego" class="form-label">Seleccione su juego favorito &nbsp;&nbsp;</label>
+                    <select class="form-select" id="juego" formControlName="juegoFavorito">
+                        <option value="" selected="true">Seleccione uno</option>
+                        <option value="A">Ahorcado</option>
+                        <option value="M">Mayor o menor</option>
+                        <option value="B">Adivina palabra</option>
+                        <option value="P">Preguntados</option>
+                    </select>
+                    <small class="invalid"
+                        *ngIf="formulario.get('juego')?.errors?.['required'] && formulario.get('juego')?.touched">
+                        El juego es requerido
+                    </small>
+
+                </div>
+
+                <div class="col-md-12 mb-5">
+
+                    <label for="floatingTextarea2">Ingrese su comentario o mejoras&nbsp;&nbsp;</label>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Ingrese su comentario aqui.." id="floatingTextarea2"
+                            formControlName="comentario" style="height: 120px" maxlength="140"></textarea>
+                    </div>
+                    <small class="invalid"
+                        *ngIf="formulario.get('comentario')?.errors?.['required'] && formulario.get('comentario')?.touched">
+                        Su comentario es requerido
+                    </small>
+
+                </div>
+
+                <div class="col-md-12 mb-5">
+
+                    <label for="floatingTextarea2"> Ingrese un nuevo juego que le gustaria
+                        agregar!&nbsp;&nbsp;</label>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Ingrese un nuevo juego que le gustaria agregar!"
+                            id="juegoNuevoTextArea" formControlName="juegoNuevo" style="height: 120px"
+                            maxlength="140"></textarea>
+                    </div>
+                    <small class="invalid"
+                        *ngIf="formulario.get('juegoNuevo')?.errors?.['required'] && formulario.get('juegoNuevo')?.touched">
+                        Su idea para un juego nuevo es requerida!
+                    </small>
+
+                </div>
+
+                <div class="col-md-12 d-grid gap-2">
+
+                    <button type="submit" class="btn btn-primary btn-block" [disabled]="formulario.invalid">
+                        Aceptar
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

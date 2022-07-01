@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+  
+      <div class="col-sm-3">
+        <span class="font">{{gameName}}</span><br>
+        <span class="font">Ganas con 4 puntos!</span>
+        <div class="imagenContainer">
+          <img src="../../../assets/Images/adivinarPalabra/portadaAdivinarPalabra.jpg" >
+          <span class="font">Intentos fallidos: {{intentosFallidos}}/3</span>
+           
+          <br><br>
+  
+          <div class="letras" *ngIf="victoria">
+            <span>Ganaste, felicitaciones!</span>
+            <button (click)="restart()" >Volver a jugar</button>
+          </div>
+        
+          <div *ngIf="derrota">
+            <span>Perdiste, volve a intentarlo!</span>
+            <button (click)="restart()" >Quiero revancha!</button>
+          </div>
+        
+          
+        </div>
+      </div>
+  
+      <div class="col-sm-5">
+        <div class="row justify-content-center">
+          <br><br>
+  
+          <h1>Preparado?! Adivina la siguiente palabra:</h1>
+          <span class="font">Puntos: {{puntos}}</span>
+          <div style="align-items: center;">
+            <h1>  </h1>
+          </div>
+      
+          <div class=" col" *ngIf= "(!victoria) && (!derrota)">
+            <div class="font">
+                <button class="abc" *ngFor="let letra of letrasElegidas" (click)="sacarLetra(letra)">{{letra}}</button><br>
+            </div><br>
+            <div class="font">
+                <button class="abc" *ngFor="let letra of letrasRandom" (click)="agregarLetra(letra)">{{letra}}</button>
+            </div>
+          </div>
+  
+          <div class='row'>
+
+              <div class="px-md-5 text-center text-white">
+                <button class="btn btn-lg btn-primary btn-block" type="button" (click)="goHome()" >Salir</button>
+              </div>
+
+              <div class="px-md-5 text-center text-white">
+                <button class="btn btn-lg btn-primary btn-block" type="button" (click)="restart()" >Reiniciar</button>
+              </div>
+            
+          </div>
+        </div>         
+      </div>
+  
+      <div class="col-sm-4">
+        <app-chat></app-chat>
+      </div>
+    </div>
+  </div>

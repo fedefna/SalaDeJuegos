@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+  
+      <div class="col-sm-3" >
+        <span class="font">{{gameName}}</span><br>
+        <span class="font">Ganas con 7 puntos!</span>
+        <div class="imagenContainer">
+          <div class='d-md-flex flex-md-equal'>
+            <div>
+                <img src="../../../assets/Images/mayorMenor/0.png" >
+              </div>
+              <div>
+                <img src="../../../assets/Images/mayorMenor/{{cartaRandom}}.png" >
+              </div>
+          </div>
+          <span class="font">Intentos fallidos: {{intentosFallidos}}/7</span>
+           
+          <br><br>
+  
+          <div *ngIf="victoria">
+            <span>Ganaste, felicitaciones!</span>
+            <button (click)="restart()" >Volver a jugar</button>
+          </div>
+        
+          <div *ngIf="derrota">
+            <span>Perdiste, volve a intentarlo!</span>
+            <button (click)="restart()" >Quiero revancha!</button>
+          </div>
+        
+          
+        </div>
+      </div>
+  
+      <div class="col-sm-5">
+        <div class="row justify-content-center">
+          <div>
+            <span class="font">Preparado?! La proxima carta será mayor o menor?</span><br>
+            <span class="font">Puntos: {{puntos}}</span>
+          </div>
+          <div class='d-md-flex flex-md-equal' *ngIf= "(!victoria) && (!derrota)">
+
+              <div class="px-md-5 text-center text-white">
+                <button class="btn btn-lg btn-primary btn-block" type="button" (click)="adivinarMayor()" >Mayor</button>
+              </div>
+
+              <div class="px-md-5 text-center text-white">
+                <button class="btn btn-lg btn-primary btn-block" type="button" (click)="adivinarMenor()" >Menor</button>
+              </div>
+            
+          </div>
+        </div>         
+      </div>
+  
+      <div class="col-sm-4">
+        <app-chat></app-chat>
+      </div>
+    </div>
+  </div>

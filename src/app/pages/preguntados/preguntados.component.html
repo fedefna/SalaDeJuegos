@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+  
+      <div class="col-sm-3">
+        <span class="font">{{gameName}}</span><br>
+        <span class="font">Ganas con 5 puntos!</span>
+        <div class="imagenContainer">
+          <img src="{{photoUrlActual}}">
+          <span class="font">Intentos fallidos: {{intentosFallidos}}</span>
+          <span class="font">Puntos: {{puntos}}</span>
+          <br><br>
+  
+          <div *ngIf="victoria">
+            <span>Adivisnaste, felicitaciones!</span>
+            <button (click)="restart()" >Volver a jugar</button>
+          </div>
+        
+          <div *ngIf="derrota">
+            <span>Perdiste, volve a intentarlo!</span>
+            <button (click)="restart()" >Quiero revancha!</button>
+          </div>
+        
+          
+        </div>
+      </div>
+  
+      <div class="col-sm-5">
+        <div class="row justify-content-center">
+          <br><br>
+  
+          <h1>Preparado?!</h1>
+          <h2>{{preguntaActual}}</h2>
+                      
+      
+          <div class="letras" *ngIf= "(!victoria) && (!derrota)">
+            <button class="abc" (click)="validarOpcion(botonOpcion1)">{{botonOpcion1}}</button>
+            <button class="abc" (click)="validarOpcion(botonOpcion2)">{{botonOpcion2}}</button>
+            <button class="abc" (click)="validarOpcion(botonOpcion3)">{{botonOpcion3}}</button>
+            <button class="abc" (click)="validarOpcion(botonOpcion4)">{{botonOpcion4}}</button>
+            <button class="abc" (click)="validarOpcion(botonOpcion5)">{{botonOpcion5}}</button>
+            
+          </div>
+  
+          <div class='d-md-flex flex-md-equal '>
+
+              <div class="px-md-5 text-center text-white">
+                <button class="btn btn-lg btn-primary btn-block" type="button" (click)="goHome()" >Salir</button>
+              </div>
+
+              <div class="px-md-5 text-center text-white">
+                <button class="btn btn-lg btn-primary btn-block" type="button" (click)="restart()" >Reiniciar</button>
+              </div>
+            
+          </div>
+        </div>         
+      </div>
+  
+      <div class="col-sm-4">
+        <app-chat></app-chat>
+      </div>
+    </div>
+  </div>

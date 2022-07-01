@@ -1,0 +1,24 @@
+#fondo{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../../assets/Images/quienSoy/quien-soy-foto.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  #fondo h1,p,th,td{
+    color: white;
+  }
+
+  h2, label{
+    color: white;
+  }
+
+  h2{
+    text-align:center;
+  }
+
+  .invalid {
+    color: red;
+}
